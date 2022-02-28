@@ -1,13 +1,15 @@
 import { createStore } from 'redux';
 
-function counterReducer(state = { value: 0 }, action){
+function counterReducer(state = { value: 0, step: 1 }, action){
   switch (action.type){
     case 'increment':
-      return { value: state.value + 1 };
+      return { ...state, value: state.value + state.step };
     case 'decrement':
-      return { value: state.value - 1 };
+      return { ...state, value: state.value - state.step };
     case 'reset':
-      return { value: 0 };
+      return { value: 0, step: 1 };
+    case 'changeStep':
+      return { ...state, step: action.payload };
     default:
       return state;
   }
