@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { increment, decrement, reset } from "../store/action";
 import Step from "./Step";
+import Max from "./Max";
 
 function App(props) {
   return (
@@ -11,6 +12,7 @@ function App(props) {
       <button onClick={() => props.dispatch(decrement())}>Decrement</button>
       <button onClick={() => props.dispatch(reset())}>Reset</button>
       <Step />
+      <Max />
     </>
   );
 }
